@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }) {
     } else if (!user && router.pathname !== "/") {
       router.push("/");
     }
-  }, [user]);
+  }, [user, router]);
 
   return (
     <>
