@@ -17,8 +17,6 @@ function MyApp({ Component, pageProps }) {
   const { user, signOut } = useUser();
   const router = useRouter();
 
-  // console.log(user);
-
   const ThemeIcon = darkMode ? SunIcon : MoonIcon;
 
   useEffect(() => {
@@ -27,7 +25,8 @@ function MyApp({ Component, pageProps }) {
     } else if (!user && router.pathname !== "/") {
       router.push("/");
     }
-  }, [user, router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   return (
     <>

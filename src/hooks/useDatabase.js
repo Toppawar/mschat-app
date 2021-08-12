@@ -19,8 +19,6 @@ const useFirestoreQuery = (query) => {
     }
   }, [query, queryRef]);
 
-  console.log(queryRef);
-
   // Re-run data listener only if query has changed
   useEffect(() => {
     if (!queryRef.current) {
@@ -34,7 +32,6 @@ const useFirestoreQuery = (query) => {
         ...doc.data(),
         id: doc.id,
       }));
-      console.log(data);
       // Update state
       setDocs(data);
     });
