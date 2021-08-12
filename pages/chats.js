@@ -38,7 +38,7 @@ const Chats = () => {
     <div className="flex flex-col h-full">
       <div className="overflow-auto h-full">
         <div className="py-4 max-w-screen-lg mx-auto">
-          <div className="border-b dark:border-gray-600 border-gray-200 py-8 mb-4">
+          <div className="border-b dark:border-gray-600 border-gray-200 py-8 mb-4 transition-colors">
             <div className="font-bold text-3xl text-center">
               <p className="mb-1">Esto es MSChat</p>
             </div>
@@ -61,7 +61,7 @@ const Chats = () => {
       <div className="mb-6 mx-4">
         <form
           onSubmit={handleOnSubmit}
-          className="flex flex-row bg-gray-200 dark:bg-coolDark-400 rounded-md px-4 py-3 z-10 max-w-screen-lg mx-auto dark:text-white shadow-md"
+          className="flex transition-colors flex-row bg-gray-200 dark:bg-coolDark-400 rounded-md px-4 py-3 z-10 max-w-screen-lg mx-auto dark:text-white shadow-md"
         >
           <input
             ref={inputRef}

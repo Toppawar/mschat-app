@@ -3,6 +3,7 @@ var flattenColorPalette =
   require("tailwindcss/lib/util/flattenColorPalette").default;
 
 module.exports = {
+  mode: "jit",
   purge: [
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
