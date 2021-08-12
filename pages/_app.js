@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import "tailwindcss/tailwind.css";
 
 import { useRouter } from "next/router";
 
