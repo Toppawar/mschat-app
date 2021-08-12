@@ -34,6 +34,10 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>MSChat</title>
         <meta name="description" content="Chat with friends ma dude" />
+        <meta
+          name="google-site-verification"
+          content="9mJAIsqkauCG0Xjoco-Fed997d-paS7G4Rycy6BX3C4"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex flex-col h-screen w-screen bg-white dark:bg-coolDark-500 dark:text-white transition-colors">
