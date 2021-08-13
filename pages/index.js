@@ -4,6 +4,8 @@ import useUser from "../src/hooks/useUser";
 
 import { GoogleIcon, ChatIcon } from "../src/components/Icons";
 
+import Button from "../src/components/Button";
+
 import Loader from "../src/components/Loader";
 
 export default function Home() {
@@ -27,13 +29,10 @@ export default function Home() {
         <p className="mb-8 text-lg text-center">
           Es como cualquier sistema de mensajeria, nada nuevo.
         </p>
-        <button
-          onClick={handleLogin}
-          className="rounded shadow-button pl-6 pr-8 py-3 bg-white hover:bg-gray-50 text-gray-600 font-medium flex items-center justify-center overflow-y-hidden focus:outline-none focus:ring focus:ring-primary-500 focus:ring-opacity-75"
-        >
+        <Button onClick={handleLogin}>
           <GoogleIcon />
           Entra con Google
-        </button>
+        </Button>
         {isLoading ? (
           <div className="mt-5">
             <Loader />

@@ -1,6 +1,5 @@
 import { useMemo, useState, useEffect, useRef } from "react";
 import useFirebase from "./useFirebase";
-import useUser from "./useUser";
 
 import isClientSide from "../utils/isClientSide";
 
@@ -43,8 +42,7 @@ const useFirestoreQuery = (query) => {
   return docs;
 };
 
-const useDatabase = (ref) => {
-  const { user } = useUser();
+const useDatabase = ({ ref, limit = 100 }) => {
   const firebase = useFirebase();
   const database = firebase.firestore();
   const collectionByRef = useMemo(() => {
@@ -52,26 +50,16 @@ const useDatabase = (ref) => {
       return database.collection(ref);
     }
     return undefined;
-  }, [ref]);
+  }, [ref, database]);
 
   const data = useFirestoreQuery(
-    collectionByRef.orderBy("createdAt", "asc").limit(100)
+    collectionByRef.orderBy("createdAt", "asc").limit(limit)
   );
-
-  const setData = (data) => {
-    collectionByRef.add({
-      text: data,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      uid: user.uid,
-      displayName: user.username,
-      photoURL: user.avatar,
-    });
-  };
 
   return {
     data,
     collectionByRef,
-    setData,
+    firebase,
   };
 };
 

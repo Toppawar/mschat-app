@@ -1,12 +1,15 @@
 import React from "react";
 import Image from "next/image";
 import { formatRelative } from "date-fns";
+import { es } from "date-fns/locale";
 
 const formatDate = (date) => {
   let formattedDate = "";
   if (date) {
     // Convert the date in words relative to the current date
-    formattedDate = formatRelative(date, new Date());
+    formattedDate = formatRelative(date, new Date(), {
+      locale: es,
+    });
     // Uppercase the first letter
     formattedDate =
       formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
