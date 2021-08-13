@@ -10,6 +10,9 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
+    minHeight: {
+      60: "60px",
+    },
     extend: {
       colors: {
         coolDark: {

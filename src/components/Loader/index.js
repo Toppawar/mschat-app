@@ -8,7 +8,7 @@ const Loader = ({ variant = "primary", size = "default" }) => {
     // Animation
     "animate-spin",
     // Variant
-    variant === "white" ? "border-t-white" : `border-t-${variant}-500`,
+    variant === "white" ? "border-t-white" : `border-t-primary-500`,
     // Size
     size === "sm" && "w-6 h-6 border-2",
     size === "default" && "w-8 h-8 border-4",

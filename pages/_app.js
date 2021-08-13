@@ -8,6 +8,8 @@ import { useDarkMode } from "../src/hooks/useDarkMode";
 
 import { MoonIcon, SunIcon, ChatIcon } from "../src/components/Icons";
 
+import Button from "../src/components/Button";
+
 import useUser from "../src/hooks/useUser";
 
 import "../styles/globals.css";
@@ -40,14 +42,14 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex flex-col h-screen w-screen bg-white dark:bg-coolDark-500 dark:text-white transition-colors">
+      <div className="flex flex-col h-screen w-full bg-white dark:bg-coolDark-500 dark:text-white transition-colors">
         <main
           className="flex-1"
-          style={{ maxHeight: "calc(100% - var(--topbar-height))" }}
+          // style={{ maxHeight: "calc(100% - var(--topbar-height))" }}
         >
           <header
-            className="flex-shrink-0 flex items-center justify-between px-4 sm:px-8 shadow-md"
-            style={{ height: "var(--topbar-height)" }}
+            className="flex-shrink-0 flex items-center justify-between flex-col sm:flex-row sm:p-2 sm:mx-8 min-h-60 h-auto"
+            // style={{ height: "var(--topbar-height)" }}
           >
             <div className="flex row items-center w-auto justify-between">
               <a href={router.pathname}>
@@ -56,28 +58,24 @@ function MyApp({ Component, pageProps }) {
               <h1 className="text-4xl ml-6">MSChat</h1>
             </div>
 
-            <div className="flex items-center">
+            <div className="flex items-center flex-wrap flex-col sm:flex-row">
               {user ? (
-                <div className="flex items-center mr-10">
-                  <Image
-                    src={user.avatar}
-                    width={45}
-                    height={45}
-                    className="rounded-full"
-                    alt="avatar"
-                  />
-
-                  <div className="grid grid-cols-2 flex items-center">
-                    <div className="pl-5 pr-5 h-10 border-r-2 dark:border-gray-600 border-gray-400 flex items-center transition-colors">
+                <div className="flex items-center sm:mr-10 flex-wrap justify-center">
+                  <div className="grid sm:grid-cols-2 flex items-center">
+                    <div className="mt-5 sm:mt-0 sm:pl-5 sm:pr-5 h-10 sm:border-r-2 dark:border-gray-600 border-gray-400 flex items-center justify-center transition-colors">
+                      <div className="m-2">
+                        <Image
+                          src={user.avatar}
+                          width={45}
+                          height={45}
+                          className="rounded-full"
+                          alt="avatar"
+                        />
+                      </div>
                       <span>{user.username}</span>
                     </div>
                     <div className="m-5">
-                      <button
-                        onClick={signOut}
-                        className="rounded shadow-button pl-6 pr-8 py-3 bg-white dark:bg-gray-600 dark:text-gray-200 transition-colors hover:bg-gray-50 text-gray-600 font-medium flex items-center justify-center overflow-y-hidden focus:outline-none focus:ring focus:ring-primary-500 focus:ring-opacity-75"
-                      >
-                        Desconectarse
-                      </button>
+                      <Button onClick={signOut}>Desconectarse</Button>
                     </div>
                   </div>
                 </div>
