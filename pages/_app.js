@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <div className="flex flex-col h-screen w-full bg-white dark:bg-coolDark-500 dark:text-white transition-colors">
         <main
-          className="flex-1"
+          className="flex-1 overflow-y-auto"
           // style={{ maxHeight: "calc(100% - var(--topbar-height))" }}
         >
           <header
